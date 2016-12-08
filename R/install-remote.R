@@ -48,12 +48,12 @@ install_remote <- function(remote, ..., force = FALSE, quiet = FALSE,
   message("=> 1")
   bundle <- remote_download(remote, quiet = quiet)
   message("=> 2")
-  on.exit(unlink(bundle), add = TRUE)
+  #on.exit(unlink(bundle), add = TRUE)
 
   message("=> 3")
   source <- source_pkg(bundle, subdir = remote$subdir)
   message("=> 4")
-  on.exit(unlink(source, recursive = TRUE), add = TRUE)
+  #on.exit(unlink(source, recursive = TRUE), add = TRUE)
 
   message("=> 5")
   metadata <- remote_metadata(remote, bundle, source)
