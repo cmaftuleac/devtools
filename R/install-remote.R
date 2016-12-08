@@ -38,6 +38,7 @@ install_remote <- function(remote, ..., force = FALSE, quiet = FALSE,
     }
   }
 
+  message("=> 0")
   if (is_windows) {
     install_packages(package_name, repos = remote$repos, type = remote$pkg_type, dependencies = NA, ..., quiet = quiet,
                      out_dir = out_dir, skip_if_log_exists = skip_if_log_exists)
