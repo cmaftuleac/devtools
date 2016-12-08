@@ -38,8 +38,8 @@ install_remote <- function(remote, ..., force = FALSE, quiet = FALSE,
     }
   }
 
-  message("MSG1")
-  if (is_windows && (inherits(remote, "cran_remote") || inherits(remote, "git"))) {
+  message("MSG1.1")
+  if (is_windows) {
     message("Windows branch ... ")
     install_packages(package_name, repos = remote$repos, type = remote$pkg_type, dependencies = NA, ..., quiet = quiet,
                      out_dir = out_dir, skip_if_log_exists = skip_if_log_exists)
