@@ -38,22 +38,26 @@ install_remote <- function(remote, ..., force = FALSE, quiet = FALSE,
     }
   }
 
-  message("MSG1.1")
   if (is_windows) {
-    message("Windows branch ... ")
     install_packages(package_name, repos = remote$repos, type = remote$pkg_type, dependencies = NA, ..., quiet = quiet,
                      out_dir = out_dir, skip_if_log_exists = skip_if_log_exists)
     return(invisible(TRUE))
   }
 
+  message("=> 1")
   bundle <- remote_download(remote, quiet = quiet)
+  message("=> 2")
   on.exit(unlink(bundle), add = TRUE)
 
+  message("=> 3")
   source <- source_pkg(bundle, subdir = remote$subdir)
+  message("=> 4")
   on.exit(unlink(source, recursive = TRUE), add = TRUE)
 
+  message("=> 5")
   metadata <- remote_metadata(remote, bundle, source)
 
+  message("=> 6")
   install(source, ..., quiet = quiet, metadata = metadata,
           out_dir = out_dir, skip_if_log_exists = skip_if_log_exists)
 }

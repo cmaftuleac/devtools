@@ -314,7 +314,7 @@ install_packages <- function(pkgs, repos = getOption("repos"),
     ), length(pkgs), paste(pkgs, collapse = ", ")))
 
   pkgbuild::with_build_tools(
-    withr::with_options("install.packages.compile.from.source" = "both",
+    withr::with_options("install.packages.compile.from.source" = "never",
       utils::install.packages(pkgs, repos = repos, type = type,
         dependencies = dependencies, quiet = quiet
       )
